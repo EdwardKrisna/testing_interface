@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Comparison</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Round <span id="round-number">{{ round }}</span>: Compare <span id="category">{{ category }}</span></h1>
+    <p>Comparison: <span id="comparison-number">{{ comparison }}</span></p>
+    <p>Context: <span id="context-info">{{ context }}</span></p>
+    <div id="product-comparison" class="product-comparison">
+        <div class="product" id="product-a">
+            <h2 id="product-a-name">{{ product_a.name }}</h2>
+            <p id="product-a-description">{{ product_a.description }}</p>
+            <p>Price: Rp<span id="product-a-price">{{ '{:,}'.format(product_a.price) }}</span></p>
+            <button onclick="selectProduct('A')">Pilih Produk Ini</button>
+        </div>
+        <div class="product" id="product-b">
+            <h2 id="product-b-name">{{ product_b.name }}</h2>
+            <p id="product-b-description">{{ product_b.description }}</p>
+            <p>Price: Rp<span id="product-b-price">{{ '{:,}'.format(product_b.price) }}</span></p>
+            <button onclick="selectProduct('B')">Pilih Produk Ini</button>
+        </div>
+    </div>
+    <div id="payoff-info" style="display:none;"></div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

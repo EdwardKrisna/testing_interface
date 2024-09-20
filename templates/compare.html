@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Comparison</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Compare Products</h1>
+    <div class="product-comparison">
+        <div class="product">
+            <h2>{{ product_a.name }}</h2>
+            <p>Price: Rp{{ '{:,}'.format(product_a.price) }}</p>
+            <button onclick="selectProduct('{{ product_a.id }}')">Pilih Produk Ini</button>
+        </div>
+        <div class="product">
+            <h2>{{ product_b.name }}</h2>
+            <p>Price: Rp{{ '{:,}'.format(product_b.price) }}</p>
+            <button onclick="selectProduct('{{ product_b.id }}')">Pilih Produk Ini</button>
+        </div>
+    </div>
+    <div id="context-info"></div>
+    <button id="confirm-btn" style="display:none;">Konfirmasi</button>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
